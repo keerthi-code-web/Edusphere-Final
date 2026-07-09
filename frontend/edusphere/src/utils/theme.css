@@ -1,0 +1,149 @@
+/*
+ * EduSphere Global Theme System
+ * Applied via data-theme attribute on <body>.
+ * Each theme overrides the background and surface colour tokens
+ * shared by all student modules (cc, mc, kv, sp, rp, piq).
+ *
+ * Accent/brand colours (primary blue, green, amber, red, purple)
+ * are intentionally kept consistent across all themes.
+ */
+
+/* ── Default: Classic Blue ── */
+body,
+body[data-theme="default"] {
+  --theme-bg:       #eef2f7;
+  --theme-surface:  #ffffff;
+  --theme-border:   #e2e8f0;
+  --theme-shadow:   0 2px 12px rgba(30, 60, 120, 0.08);
+  --theme-shadow-h: 0 6px 24px rgba(30, 60, 120, 0.14);
+}
+
+/* ── Slate ── */
+body[data-theme="slate"] {
+  --theme-bg:       #f1f5f9;
+  --theme-surface:  #ffffff;
+  --theme-border:   #cbd5e1;
+  --theme-shadow:   0 2px 12px rgba(71, 85, 105, 0.10);
+  --theme-shadow-h: 0 6px 24px rgba(71, 85, 105, 0.16);
+}
+
+/* ── Forest Green ── */
+body[data-theme="forest"] {
+  --theme-bg:       #f0fdf4;
+  --theme-surface:  #ffffff;
+  --theme-border:   #bbf7d0;
+  --theme-shadow:   0 2px 12px rgba(22, 163, 74, 0.08);
+  --theme-shadow-h: 0 6px 24px rgba(22, 163, 74, 0.14);
+}
+
+/* ── Rose ── */
+body[data-theme="rose"] {
+  --theme-bg:       #fff1f2;
+  --theme-surface:  #ffffff;
+  --theme-border:   #fecdd3;
+  --theme-shadow:   0 2px 12px rgba(225, 29, 72, 0.08);
+  --theme-shadow-h: 0 6px 24px rgba(225, 29, 72, 0.12);
+}
+
+/* ── Midnight ── */
+body[data-theme="midnight"] {
+  --theme-bg:       #1e293b;
+  --theme-surface:  #273548;
+  --theme-border:   #334155;
+  --theme-shadow:   0 2px 12px rgba(0, 0, 0, 0.30);
+  --theme-shadow-h: 0 6px 24px rgba(0, 0, 0, 0.42);
+}
+
+/* ── Wire up each module's bg/surface/shadow/border tokens to theme tokens ── */
+
+/* Command Center */
+body[data-theme] .command-center-page,
+body[data-theme] .main-content  { background: var(--theme-bg); }
+body[data-theme] .top-navbar    { background: var(--theme-surface); border-color: var(--theme-border); box-shadow: var(--theme-shadow); }
+body[data-theme] .stat-card,
+body[data-theme] .module-card,
+body[data-theme] .task-item,
+body[data-theme] .activity-item,
+body[data-theme] .cc-modal,
+body[data-theme] .navbar-dropdown { background: var(--theme-surface); border-color: var(--theme-border); box-shadow: var(--theme-shadow); }
+
+/* Mission Control */
+body[data-theme] .mc-root        { background: var(--theme-bg); }
+body[data-theme] .mc-task-list,
+body[data-theme] .mc-panel,
+body[data-theme] .mc-summary-card,
+body[data-theme] .mc-task-card,
+body[data-theme] .mc-modal       { background: var(--theme-surface); border-color: var(--theme-border); box-shadow: var(--theme-shadow); }
+
+/* Knowledge Vault */
+body[data-theme] .kv-root          { background: var(--theme-bg); }
+body[data-theme] .kv-summary-card,
+body[data-theme] .kv-resource-card,
+body[data-theme] .kv-category-card,
+body[data-theme] .kv-panel,
+body[data-theme] .kv-modal         { background: var(--theme-surface); border-color: var(--theme-border); box-shadow: var(--theme-shadow); }
+
+/* StudyPath */
+body[data-theme] .sp-root  { background: var(--theme-bg); }
+body[data-theme] .sp-card,
+body[data-theme] .sp-stat-card,
+body[data-theme] .sp-modal { background: var(--theme-surface); border-color: var(--theme-border); box-shadow: var(--theme-shadow); }
+
+/* RapidPrep */
+body[data-theme] .rp-root          { background: var(--theme-bg); }
+body[data-theme] .rp-summary-card,
+body[data-theme] .rp-card,
+body[data-theme] .rp-exam-item,
+body[data-theme] .rp-panel,
+body[data-theme] .rp-modal         { background: var(--theme-surface); border-color: var(--theme-border); box-shadow: var(--theme-shadow); }
+
+/* ProgressIQ */
+body[data-theme] .piq-root          { background: var(--theme-bg); }
+body[data-theme] .piq-summary-card,
+body[data-theme] .piq-card,
+body[data-theme] .piq-chart-card,
+body[data-theme] .piq-panel         { background: var(--theme-surface); border-color: var(--theme-border); box-shadow: var(--theme-shadow); }
+
+/* ── Midnight-specific text overrides ── */
+/* In midnight mode, text on dark surfaces needs to be light */
+body[data-theme="midnight"] .mc-root,
+body[data-theme="midnight"] .kv-root,
+body[data-theme="midnight"] .sp-root,
+body[data-theme="midnight"] .rp-root,
+body[data-theme="midnight"] .piq-root,
+body[data-theme="midnight"] .main-content {
+  color: #e2e8f0;
+}
+
+body[data-theme="midnight"] .mc-task-title,
+body[data-theme="midnight"] .mc-panel-title,
+body[data-theme="midnight"] .mc-summary-value,
+body[data-theme="midnight"] .mc-section-title,
+body[data-theme="midnight"] .mc-title,
+body[data-theme="midnight"] .kv-title,
+body[data-theme="midnight"] .kv-section-title,
+body[data-theme="midnight"] .kv-cat-name,
+body[data-theme="midnight"] .kv-resource-title,
+body[data-theme="midnight"] .sp-title,
+body[data-theme="midnight"] .sp-card-title,
+body[data-theme="midnight"] .sp-task-title,
+body[data-theme="midnight"] .sp-tl-subject,
+body[data-theme="midnight"] .sp-today-task,
+body[data-theme="midnight"] .rp-page-title,
+body[data-theme="midnight"] .rp-card-title,
+body[data-theme="midnight"] .rp-exam-subject,
+body[data-theme="midnight"] .piq-title,
+body[data-theme="midnight"] .section-heading,
+body[data-theme="midnight"] .welcome-greeting {
+  color: #f1f5f9;
+}
+
+body[data-theme="midnight"] .mc-task-card,
+body[data-theme="midnight"] .kv-resource-card {
+  background: #2d3f55;
+}
+
+body[data-theme="midnight"] .mc-task-card:hover,
+body[data-theme="midnight"] .kv-resource-card:hover {
+  background: #344a63;
+}

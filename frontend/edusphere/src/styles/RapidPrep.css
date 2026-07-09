@@ -1,0 +1,707 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   RapidPrep.css  —  EduSphere RapidPrep Module
+   Design tokens kept in sync with Login, Command Center, Mission Control,
+   Knowledge Vault, and StudyPath modules.
+───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Tokens ───────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Brand */
+  --rp-blue:       #3b82f6;
+  --rp-blue-dark:  #2563eb;
+  --rp-blue-light: #eff6ff;
+  --rp-purple:     #8b5cf6;
+  --rp-purple-lt:  #f5f3ff;
+  --rp-teal:       #14b8a6;
+  --rp-teal-lt:    #f0fdfa;
+  --rp-orange:     #f97316;
+  --rp-orange-lt:  #fff7ed;
+
+  /* Neutral */
+  --rp-bg:         #f0f4f8;
+  --rp-surface:    #ffffff;
+  --rp-border:     #e2e8f0;
+  --rp-text-dark:  #1e293b;
+  --rp-text-mid:   #475569;
+  --rp-text-light: #94a3b8;
+
+  /* Misc */
+  --rp-radius-sm:  8px;
+  --rp-radius-md:  14px;
+  --rp-radius-lg:  20px;
+  --rp-shadow:     0 1px 4px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.06);
+  --rp-shadow-hover: 0 4px 12px rgba(59, 130, 246, 0.15), 0 8px 28px rgba(0, 0, 0, 0.09);
+}
+
+/* ── Root / Page Layout ───────────────────────────────────────────────────── */
+
+.rp-root {
+  min-height: 100vh;
+  background: var(--rp-bg);
+  padding: 32px 28px 56px;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  color: var(--rp-text-dark);
+  box-sizing: border-box;
+}
+
+/* ── Page Header ──────────────────────────────────────────────────────────── */
+
+.rp-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+    text-align: left;
+}
+
+.rp-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rp-back-btn {
+  background: none;
+  border: none;
+  color: var(--rp-text-mid);
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 8px;
+  align-self: flex-start;
+  transition: color 0.15s ease;
+}
+
+.rp-back-btn:hover {
+  color: var(--rp-blue);
+}
+
+.rp-page-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--rp-text-dark);
+  margin: 0 0 6px;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.rp-title-icon {
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.rp-page-subtitle {
+  font-size: 0.95rem;
+  color: var(--rp-text-mid);
+  margin: 0;
+  font-weight: 400;
+}
+
+.rp-header-badge {
+  background: linear-gradient(135deg, var(--rp-blue), var(--rp-blue-dark));
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  align-self: flex-start;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* ── Summary Cards Grid ───────────────────────────────────────────────────── */
+
+.rp-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.rp-summary-card {
+  background: var(--rp-surface);
+  border-radius: var(--rp-radius-md);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  box-shadow: var(--rp-shadow);
+  border-top: 4px solid transparent;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.rp-summary-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  border-radius: var(--rp-radius-md);
+  transition: opacity 0.2s;
+}
+
+.rp-summary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--rp-shadow-hover);
+}
+
+/* Accent borders */
+.rp-accent-blue   { border-top-color: var(--rp-blue);   }
+.rp-accent-purple { border-top-color: var(--rp-purple); }
+.rp-accent-teal   { border-top-color: var(--rp-teal);   }
+.rp-accent-orange { border-top-color: var(--rp-orange); }
+
+/* Accent bg tints */
+.rp-accent-blue::before   { background: var(--rp-blue);   }
+.rp-accent-purple::before { background: var(--rp-purple); }
+.rp-accent-teal::before   { background: var(--rp-teal);   }
+.rp-accent-orange::before { background: var(--rp-orange); }
+
+.rp-summary-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.rp-summary-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--rp-text-dark);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.rp-summary-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--rp-text-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* ── Section ──────────────────────────────────────────────────────────────── */
+
+.rp-section {
+  margin-bottom: 44px;
+}
+
+.rp-section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.rp-section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--rp-text-dark);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.rp-section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--rp-border);
+}
+
+/* ── Card Grid ────────────────────────────────────────────────────────────── */
+
+.rp-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* ── Individual Card ──────────────────────────────────────────────────────── */
+
+.rp-card {
+  background: var(--rp-surface);
+  border-radius: var(--rp-radius-md);
+  padding: 22px 20px 20px;
+  box-shadow: var(--rp-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  border: 1px solid var(--rp-border);
+}
+
+.rp-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--rp-shadow-hover);
+}
+
+.rp-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rp-card-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--rp-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.rp-icon-blue   { background: var(--rp-blue-light);  }
+.rp-icon-purple { background: var(--rp-purple-lt);   }
+.rp-icon-teal   { background: var(--rp-teal-lt);     }
+.rp-icon-orange { background: var(--rp-orange-lt);   }
+
+.rp-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--rp-text-dark);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.rp-card-meta {
+  font-size: 0.99rem;
+  color: var(--rp-text-dark);
+  margin: 6px 0 10px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+/* ── Badges ───────────────────────────────────────────────────────────────── */
+
+.rp-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.rp-badge-high   { background: #fee2e2; color: #b91c1c; }
+.rp-badge-medium { background: #fef3c7; color: #92400e; }
+.rp-badge-low    { background: #dcfce7; color: #166534; }
+
+.rp-badge-easy   { background: #dcfce7; color: #166534; }
+.rp-badge-medium { background: #fef3c7; color: #92400e; }
+.rp-badge-hard   { background: #fee2e2; color: #b91c1c; }
+
+.rp-badge-year    { background: var(--rp-blue-light); color: var(--rp-blue-dark); }
+.rp-badge-updated { background: var(--rp-teal-lt);   color: #0d7a72; }
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+
+.rp-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--rp-blue);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 9px 16px;
+  border: none;
+  border-radius: var(--rp-radius-sm);
+  cursor: pointer;
+  transition: background 0.16s ease, transform 0.12s ease;
+  align-self: flex-start;
+  letter-spacing: 0.2px;
+}
+
+.rp-btn-primary:hover {
+  background: var(--rp-blue-dark);
+  transform: translateY(-1px);
+}
+
+.rp-btn-primary:active {
+  transform: translateY(0);
+}
+
+.rp-btn-sm {
+  padding: 7px 14px;
+  font-size: 0.79rem;
+}
+
+.rp-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: transparent;
+  color: var(--rp-blue);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border: 1.5px solid var(--rp-blue);
+  border-radius: var(--rp-radius-sm);
+  cursor: pointer;
+  transition: background 0.16s ease, color 0.16s ease, transform 0.12s ease;
+  align-self: flex-start;
+  letter-spacing: 0.2px;
+}
+
+.rp-btn-outline:hover {
+  background: var(--rp-blue-light);
+  transform: translateY(-1px);
+}
+
+/* ── Generic Panel ────────────────────────────────────────────────────────── */
+
+.rp-panel {
+  background: var(--rp-surface);
+  border-radius: var(--rp-radius-md);
+  padding: 24px 22px;
+  box-shadow: var(--rp-shadow);
+  border: 1px solid var(--rp-border);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.rp-panel-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--rp-text-dark);
+  margin: 0;
+}
+
+.rp-panel-sub {
+  font-size: 0.83rem;
+  color: var(--rp-text-mid);
+  margin: 0;
+  font-weight: 500;
+}
+
+.rp-panel-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--rp-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+/* ── Tip Panel ────────────────────────────────────────────────────────────── */
+
+.rp-panel-tip {
+  background: linear-gradient(145deg, #eff6ff, #f5f3ff);
+  border: 1px solid #dde9ff;
+}
+
+.rp-quote {
+  font-size: 0.93rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--rp-text-dark);
+  line-height: 1.6;
+  margin: 0;
+  border-left: 3px solid var(--rp-blue);
+  padding-left: 12px;
+}
+
+/* ── Empty State ──────────────────────────────────────────────────────────── */
+
+.rp-empty-text {
+  font-size: 0.85rem;
+  color: var(--rp-text-light);
+  text-align: center;
+  padding: 18px 0;
+  margin: 0;
+}
+
+/* ── Upcoming Exams List ──────────────────────────────────────────────────── */
+
+.rp-exam-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rp-exam-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--rp-surface);
+  border: 1px solid var(--rp-border);
+  border-radius: var(--rp-radius-md);
+  padding: 14px 18px;
+  box-shadow: var(--rp-shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.rp-exam-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--rp-shadow-hover);
+}
+
+.rp-exam-date-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: var(--rp-radius-sm);
+  background: var(--rp-blue-light);
+  color: var(--rp-blue-dark);
+  flex-shrink: 0;
+}
+
+.rp-exam-day {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.rp-exam-mon {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.rp-exam-info {
+  flex: 1;
+}
+
+.rp-exam-subject {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--rp-text-dark);
+  margin: 0 0 3px;
+}
+
+.rp-exam-meta {
+  font-size: 0.78rem;
+  color: var(--rp-text-mid);
+}
+
+/* ── Section header with action button ───────────────────────────────────── */
+
+.rp-section-header .rp-btn-sm {
+  flex-shrink: 0;
+}
+
+/* ── Add Exam Modal ───────────────────────────────────────────────────────── */
+
+.rp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.rp-modal {
+  background: var(--rp-surface);
+  border-radius: var(--rp-radius-md);
+  width: 100%;
+  max-width: 480px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.18);
+  overflow: hidden;
+}
+
+.rp-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--rp-border);
+  flex-shrink: 0;
+}
+
+.rp-modal-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--rp-text-dark);
+  margin: 0;
+}
+
+.rp-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: var(--rp-text-light);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.rp-modal-close:hover { color: var(--rp-text-dark); }
+
+.rp-modal-body {
+  padding: 20px 22px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rp-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rp-form-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--rp-text-dark);
+}
+
+.rp-required { color: #ef4444; }
+.rp-optional { font-weight: 400; color: var(--rp-text-light); }
+
+.rp-form-input {
+  width: 100%;
+  border: 1.5px solid var(--rp-border);
+  border-radius: var(--rp-radius-sm);
+  padding: 9px 12px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--rp-text-dark);
+  background: #f8fafc;
+  box-sizing: border-box;
+}
+
+.rp-form-input:focus {
+  outline: none;
+  border-color: var(--rp-blue);
+}
+
+.rp-input-error { border-color: #ef4444; }
+
+.rp-error-msg {
+  font-size: 0.75rem;
+  color: #ef4444;
+}
+
+.rp-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 22px;
+  border-top: 1px solid var(--rp-border);
+  flex-shrink: 0;
+}
+
+.rp-modal-cancel {
+  border: 1.5px solid var(--rp-border);
+  background: var(--rp-surface);
+  border-radius: var(--rp-radius-sm);
+  padding: 9px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--rp-text-mid);
+  cursor: pointer;
+}
+
+.rp-modal-cancel:hover { border-color: var(--rp-text-light); }
+
+.rp-modal-submit {
+  border: none;
+  background: var(--rp-blue);
+  border-radius: var(--rp-radius-sm);
+  padding: 9px 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+.rp-modal-submit:hover { background: var(--rp-blue-dark); }
+
+/* ── Responsive — Large Desktop ───────────────────────────────────────────── */
+
+@media (min-width: 1440px) {
+  .rp-root {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 36px 40px 56px;
+  }
+}
+
+/* ── Responsive — Tablet ──────────────────────────────────────────────────── */
+
+@media (max-width: 1100px) {
+  .rp-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rp-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Responsive — Mobile ──────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .rp-root {
+    padding: 20px 16px 48px;
+  }
+
+  .rp-page-title {
+    font-size: 1.55rem;
+  }
+
+  .rp-page-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rp-header-badge {
+    align-self: flex-start;
+  }
+
+  .rp-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .rp-summary-value {
+    font-size: 1.7rem;
+  }
+
+  .rp-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rp-section-header {
+    flex-wrap: wrap;
+  }
+
+  .rp-exam-item {
+    flex-wrap: wrap;
+  }
+}
+
+/* ── Reduced Motion ───────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .rp-card,
+  .rp-summary-card,
+  .rp-btn-primary,
+  .rp-btn-outline {
+    transition: none;
+  }
+}

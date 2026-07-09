@@ -1,0 +1,456 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   ProgressIQ.css  —  EduSphere ProgressIQ Module
+   Tokens identical to RapidPrep / StudyPath / Knowledge Vault family.
+───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Tokens ───────────────────────────────────────────────────────────────── */
+
+:root {
+  --piq-blue:        #3b82f6;
+  --piq-blue-dark:   #2563eb;
+  --piq-blue-light:  #eff6ff;
+  --piq-purple:      #8b5cf6;
+  --piq-purple-lt:   #f5f3ff;
+  --piq-teal:        #14b8a6;
+  --piq-teal-lt:     #f0fdfa;
+  --piq-orange:      #f97316;
+  --piq-orange-lt:   #fff7ed;
+  --piq-green:       #22c55e;
+  --piq-green-lt:    #f0fdf4;
+
+  --piq-bg:          #f0f4f8;
+  --piq-surface:     #ffffff;
+  --piq-border:      #e2e8f0;
+  --piq-text-dark:   #1e293b;
+  --piq-text-mid:    #475569;
+  --piq-text-light:  #94a3b8;
+
+  --piq-radius-sm:   8px;
+  --piq-radius-md:   14px;
+  --piq-shadow:      0 1px 4px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.06);
+  --piq-shadow-hover:0 4px 12px rgba(59,130,246,.15), 0 8px 28px rgba(0,0,0,.09);
+}
+
+/* ── Root ─────────────────────────────────────────────────────────────────── */
+
+.piq-root {
+  min-height: 100vh;
+  background: var(--piq-bg);
+  padding: 32px 28px 56px;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  color: var(--piq-text-dark);
+  box-sizing: border-box;
+}
+
+/* ── Page Header ──────────────────────────────────────────────────────────── */
+
+.piq-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.piq-page-header{
+   display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.piq-back-btn {
+ background: none;
+  border: none;
+  color: var(--kv-text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: var(--kv-font);
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 8px;
+  align-self: flex-start;
+  transition: color 0.15s ease;
+}
+.piq-back-btn:hover {
+  color: var(--kv-primary);
+}
+
+.piq-page-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--piq-text-dark);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+   display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px;
+}
+
+.piq-title-icon {
+  margin-right: 6px;
+  display: inline-block;
+}
+
+.piq-page-subtitle {
+  font-size: 0.92rem;
+  color: var(--piq-text-mid);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ── Score Cards ──────────────────────────────────────────────────────────── */
+
+.piq-score-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.piq-score-card {
+  background: var(--piq-surface);
+  border-radius: var(--piq-radius-md);
+  padding: 22px 18px 18px;
+  border-top: 4px solid transparent;
+  box-shadow: var(--piq-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.piq-score-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--piq-shadow-hover);
+}
+
+.piq-accent-blue   { border-top-color: var(--piq-blue);   }
+.piq-accent-purple { border-top-color: var(--piq-purple); }
+.piq-accent-teal   { border-top-color: var(--piq-teal);   }
+.piq-accent-orange { border-top-color: var(--piq-orange); }
+
+.piq-score-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.piq-score-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.piq-score-value {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--piq-text-dark);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.piq-score-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--piq-text-dark);
+}
+
+/* ── Fill colour helpers ──────────────────────────────────────────────────── */
+
+.piq-fill-blue   { background: var(--piq-blue);   }
+.piq-fill-purple { background: var(--piq-purple); }
+.piq-fill-teal   { background: var(--piq-teal);   }
+.piq-fill-orange { background: var(--piq-orange); }
+.piq-fill-green  { background: var(--piq-green);  }
+
+/* ── Sections ─────────────────────────────────────────────────────────────── */
+
+.piq-section {
+  margin-bottom: 28px;
+}
+
+.piq-sec-hdr {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.piq-sec-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--piq-text-dark);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.piq-sec-line {
+  flex: 1;
+  height: 1px;
+  background: var(--piq-border);
+}
+
+/* ── Generic card ─────────────────────────────────────────────────────────── */
+
+.piq-card {
+  background: var(--piq-surface);
+  border-radius: var(--piq-radius-md);
+  padding: 24px 22px;
+  border: 1px solid var(--piq-border);
+  box-shadow: var(--piq-shadow);
+}
+
+.piq-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--piq-text-dark);
+  margin: 0 0 20px;
+}
+
+/* ── Performance Breakdown Card ───────────────────────────────────────────── */
+
+.piq-bar-explain {
+  font-size: 0.78rem;
+  color: var(--piq-text-mid);
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.piq-card-bars {
+  display: flex;
+  flex-direction: column;
+}
+
+.piq-bars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.piq-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.piq-bar-row:not(:last-child) {
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--piq-border);
+}
+
+.piq-bar-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.piq-bar-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--piq-text-dark);
+}
+
+.piq-bar-pct {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--piq-text-mid);
+}
+
+.piq-bar-bg {
+  height: 10px;
+  background: var(--piq-border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.piq-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width .8s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── Strengths & Weaknesses ───────────────────────────────────────────────── */
+
+.piq-sw-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.piq-card-sw {
+  display: flex;
+  flex-direction: column;
+}
+
+.piq-sw-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.piq-strength-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--piq-green-lt);
+  border: 1px solid #bbf7d0;
+  border-radius: var(--piq-radius-sm);
+  padding: 12px 14px;
+}
+
+.piq-strength-icon {
+  font-size: 1rem;
+  color: #16a34a;
+  flex-shrink: 0;
+  font-weight: 800;
+}
+
+.piq-strength-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #14532d;
+}
+
+.piq-weakness-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: var(--piq-radius-sm);
+  padding: 12px 14px;
+}
+
+.piq-weakness-dot {
+  font-size: 1.3rem;
+  color: var(--piq-orange);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.piq-weakness-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #7c2d12;
+}
+
+/* ── Bottom Row ───────────────────────────────────────────────────────────── */
+
+.piq-section--last {
+  margin-bottom: 0;
+}
+
+.piq-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* ── Chart Card ───────────────────────────────────────────────────────────── */
+
+
+
+.piq-card-chart--full {
+  width: 100%;
+}
+
+
+
+
+
+
+.piq-demo-bar:hover {
+  opacity: 1;
+}
+
+
+
+
+
+.piq-chart-note strong {
+  color: var(--piq-blue-dark);
+  font-weight: 800;
+}
+
+/* ── Keep Growing ─────────────────────────────────────────────────────────── */
+
+.piq-card-grow {
+  background: linear-gradient(145deg, var(--piq-blue-light), var(--piq-purple-lt));
+  border: 1px solid #dde9ff;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.piq-grow-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--piq-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.piq-grow-quote {
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--piq-text-dark);
+  line-height: 1.65;
+  margin: 0;
+  border-left: 3px solid var(--piq-blue);
+  padding-left: 12px;
+  border-radius: 0;
+}
+
+/* ── Responsive — Tablet ──────────────────────────────────────────────────── */
+
+@media (max-width: 1100px) {
+  .piq-score-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── Responsive — Mobile ──────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .piq-root {
+    padding: 20px 16px 48px;
+  }
+
+  .piq-page-title {
+    font-size: 1.55rem;
+  }
+
+  .piq-page-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .piq-score-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .piq-score-value {
+    font-size: 1.5rem;
+  }
+
+  .piq-sw-row {
+    grid-template-columns: 1fr;
+  }
+
+  .piq-bottom-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Reduced Motion ───────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .piq-score-card,
+  .piq-bar-fill {
+    transition: none;
+  }
+}
