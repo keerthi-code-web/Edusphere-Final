@@ -52,7 +52,7 @@ app.post("/test", (req, res) => {
     });
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
     console.log("Root route hit!");
