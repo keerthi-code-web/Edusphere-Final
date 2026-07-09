@@ -144,7 +144,7 @@ SHOW CREATE TABLE Task;
 
 SELECT DATABASE();
 
-USE edusphere_db;
+USE defaultdb;
 DESCRIBE student;
 SHOW COLUMNS FROM student;
 ALTER TABLE student
@@ -162,7 +162,7 @@ MODIFY display_name VARCHAR(50) NULL;
 DESCRIBE student;
 SELECT * FROM student;
 SELECT * FROM student;
-USE edusphere_db;
+USE defaultdb;
 DESCRIBE task;
 SELECT * FROM task;
 SELECT * FROM task;
@@ -187,7 +187,7 @@ DESCRIBE admin;
 SELECT * FROM admin;
 DESCRIBE announcement;
 SELECT admin_id, name, email FROM admin;
-USE edusphere_db;
+USE defaultdb;
 
 SELECT * FROM announcement;
 SELECT announcement_id, title
