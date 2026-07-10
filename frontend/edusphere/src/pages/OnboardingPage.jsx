@@ -246,7 +246,7 @@ const handleAvatarChange = async (e) => {
     src={
         profileData.avatarUrl?.startsWith("blob:")
             ? profileData.avatarUrl
-            : `http://localhost:5000${profileData.avatarUrl}`
+            : `${import.meta.env.VITE_API_URL}${profileData.avatarUrl}`
     }
     alt="Avatar"
     className="avatar-img"

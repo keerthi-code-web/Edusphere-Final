@@ -12,7 +12,7 @@ import {
     updateProfile,uploadProfilePhoto
 } from "../services/profileService";
 
-
+const API_URL = import.meta.env.VITE_API_URL;
 const DEFAULT_NAME = 'Student';
 const BACKEND_URL = import.meta.env.VITE_API_URL.replace("/api", "");
 const DEFAULT_SUBJECTS = [
@@ -559,7 +559,7 @@ useEffect(() => {
                       <img src={
     settingsForm.avatarUrl?.startsWith("blob:")
         ? settingsForm.avatarUrl
-        : `http://localhost:5000${settingsForm.avatarUrl}`
+        : `${API_URL}${settingsForm.avatarUrl}`
 } alt="Avatar" className="cc-avatar-img" />
                     ) : (
                       <span className="cc-avatar-placeholder">

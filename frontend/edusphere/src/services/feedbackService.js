@@ -10,7 +10,7 @@ export const getFeedback = async () => {
     return await api.get("/feedback/all");
 };
 
-// Admin
+// ===== ADMIN =====
 
 export const getAllFeedback = async () => {
     return await api.get("/feedback/admin/all");

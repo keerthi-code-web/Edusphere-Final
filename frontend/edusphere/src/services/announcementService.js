@@ -1,87 +1,28 @@
-import axios from "axios";
-
-const API = "http://localhost:5000/api/announcements";
-
-// ============================
-// CREATE ANNOUNCEMENT
-// ============================
-
-export const createAnnouncement = async (announcementData) => {
-
-    return await axios.post(
-
-        `${API}/create`,
-
-        announcementData,
-
-        {
-           headers: {
-    Authorization: `Bearer ${localStorage.getItem("token")}`
-}
-        }
-
-    );
-
-};
-
-// ============================
-// GET ALL ANNOUNCEMENTS
-// ============================
+import api from "./api";
 
 export const getAnnouncements = async () => {
-
-    return await axios.get(
-
-        `${API}/all`,
-
-        {
-           headers: {
-    Authorization: `Bearer ${localStorage.getItem("token")}`
-}
-        }
-
-    );
-
+    return await api.get("/announcements/all");
 };
 
-// ============================
-// UPDATE ANNOUNCEMENT
-// ============================
-
-export const updateAnnouncement = async (announcementId, announcementData) => {
-
-    return await axios.put(
-
-        `${API}/update/${announcementId}`,
-
-        announcementData,
-
-        {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-        }
-
+export const createAnnouncement = async (announcementData) => {
+    return await api.post(
+        "/announcements/create",
+        announcementData
     );
-
 };
 
-// ============================
-// DELETE ANNOUNCEMENT
-// ============================
+export const updateAnnouncement = async (
+    announcementId,
+    announcementData
+) => {
+    return await api.put(
+        `/announcements/update/${announcementId}`,
+        announcementData
+    );
+};
 
 export const deleteAnnouncement = async (announcementId) => {
-
-    return await axios.delete(
-
-        `${API}/delete/${announcementId}`,
-
-        {
-           headers: {
-    Authorization: `Bearer ${localStorage.getItem("token")}`
-}
-        }
-
+    return await api.delete(
+        `/announcements/delete/${announcementId}`
     );
-
 };
