@@ -30,12 +30,19 @@ app.use(
 
 app.use(
     cors({
-        origin: [
-            "http://localhost:5173",
-            "https://edusphere-frontend-rho.vercel.app",
-            "edusphere-frontend-git-main-keerthi23.vercel.app",
-            "edusphere-frontend-4epw8n2s7-keerthi23.vercel.app"
-        ],
+        origin: function (origin, callback) {
+
+            if (!origin) return callback(null, true);
+
+            if (
+                origin === "http://localhost:5173" ||
+                origin.endsWith(".vercel.app")
+            ) {
+                return callback(null, true);
+            }
+
+            callback(new Error("Not allowed by CORS"));
+        },
         credentials: true
     })
 );
