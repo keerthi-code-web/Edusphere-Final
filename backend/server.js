@@ -28,11 +28,17 @@ app.use(
     express.static(path.join(__dirname, "uploads"))
 );
 
-
-app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true
-}));
+app.use(
+    cors({
+        origin: [
+            "http://localhost:5173",
+            "https://edusphere-frontend-rho.vercel.app",
+            "edusphere-frontend-git-main-keerthi23.vercel.app",
+            "edusphere-frontend-4epw8n2s7-keerthi23.vercel.app"
+        ],
+        credentials: true
+    })
+);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
