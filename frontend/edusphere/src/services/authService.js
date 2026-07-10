@@ -18,7 +18,9 @@ export const getCurrentStudent = async () => {
     return await api.get("/auth/me", {
 
         headers: {
-            Authorization: token
+
+            Authorization: `Bearer ${token}`
+
         }
 
     });

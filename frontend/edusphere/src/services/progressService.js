@@ -1,49 +1,17 @@
-import axios from "axios";
-
-const API = "http://localhost:5000/api/progress";
+import api from "./api";
 
 export const createProgress = async (progressData) => {
-    return await axios.post(
-        `${API}/create`,
-        progressData,
-        {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-        }
-    );
+    return await api.post("/progress/create", progressData);
 };
 
 export const getProgress = async () => {
-    return await axios.get(
-        `${API}/all`,
-        {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-        }
-    );
+    return await api.get("/progress/all");
 };
 
 export const updateProgress = async (progressId, progressData) => {
-    return await axios.put(
-        `${API}/update/${progressId}`,
-        progressData,
-        {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-        }
-    );
+    return await api.put(`/progress/update/${progressId}`, progressData);
 };
 
 export const deleteProgress = async (progressId) => {
-    return await axios.delete(
-        `${API}/delete/${progressId}`,
-        {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-        }
-    );
+    return await api.delete(`/progress/delete/${progressId}`);
 };

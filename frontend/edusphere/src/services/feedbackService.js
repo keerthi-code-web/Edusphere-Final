@@ -1,58 +1,24 @@
-import axios from "axios";
-
-const API = "http://localhost:5000/api/feedback";
+import api from "./api";
 
 export const createFeedback = async (message) => {
-
-    return await axios.post(
-        `${API}/create`,
-        {
-            message
-        },
-        {
-            headers: {
-                Authorization: localStorage.getItem("token")
-            }
-        }
-    );
-
+    return await api.post("/feedback/create", {
+        message
+    });
 };
 
 export const getFeedback = async () => {
-
-    return await axios.get(
-        `${API}/all`,
-        {
-            headers: {
-                Authorization: localStorage.getItem("token")
-            }
-        }
-    );
-
+    return await api.get("/feedback/all");
 };
 
-// ===== ADMIN =====
+// Admin
 
 export const getAllFeedback = async () => {
-
-    return await axios.get(
-
-        `${API}/admin/all`
-
-    );
-
+    return await api.get("/feedback/admin/all");
 };
 
 export const updateFeedbackStatus = async (feedbackId, status) => {
-
-    return await axios.put(
-
-        `${API}/admin/status/${feedbackId}`,
-
-        {
-            status
-        }
-
+    return await api.put(
+        `/feedback/admin/status/${feedbackId}`,
+        { status }
     );
-
 };
