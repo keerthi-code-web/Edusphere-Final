@@ -14,7 +14,7 @@ import {
 
 
 const DEFAULT_NAME = 'Student';
-
+const BACKEND_URL = import.meta.env.VITE_API_URL.replace("/api", "");
 const DEFAULT_SUBJECTS = [
   'Mathematics', 'Physics', 'Chemistry', 'Biology',
   'History', 'Geography', 'English', 'Computer Science',
@@ -408,7 +408,7 @@ useEffect(() => {
                 {profile.avatarUrl ? (
                   <img src={
     profile.avatarUrl
-        ? `http://localhost:5000${profile.avatarUrl}`
+        ? `${BACKEND_URL}${profile.avatarUrl}`
         : ""
 } alt={studentName} className="navbar-avatar-img" />
                 ) : (
