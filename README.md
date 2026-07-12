@@ -122,7 +122,7 @@ https://edusphere-backend-vabj.onrender.com
 # 🖼 Project Screenshots
 
 The `ui-designs` folder contains the finalized UI design references used during the development phase.
-
+The `screenshots` folder contains the screenshot references of current pages Edusphere.
 ---
 
 # 📚 Project Documents
